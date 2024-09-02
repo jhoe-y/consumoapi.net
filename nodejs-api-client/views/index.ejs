@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: rgb(62, 62, 117);
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+        }
+        #ide {
+            background-color: rgb(102, 164, 196);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+        }
+        #campos {
+            background-color: rgb(117, 222, 222);
+            color: rgb(0, 99, 8);
+        }
+        table, th, td {
+            border: 1px solid rgb(5, 5, 5);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-container input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: rgb(62, 62, 117);
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Products List</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar por producto">
+        <button onclick="searchProducts()">Buscar</button>
+    </div>
+    <table id="productsTable">
+        <thead>
+            <tr id="campos">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+            <tr class="product-row">
+                <td id="ide"><%= product.id %></td>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <script src="../views/search.js"></script>
+</body>
+</html>
